@@ -6,14 +6,14 @@
 #    By: fcharbon <fcharbon@student.42london.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 19:56:15 by fcharbon          #+#    #+#              #
-#    Updated: 2024/02/01 23:24:48 by fcharbon         ###   ########.fr        #
+#    Updated: 2024/02/05 14:32:48 by fcharbon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := muh_fucka
 CC := gcc
 # PUT WERROR BACK
-CFLAGS := -Wall -Wextra -g
+CFLAGS := -Wall -Werror -Wextra -g
 SRCS := map_reading.c \
 		coords_maxxing.c \
 		point_scaling.c \
@@ -22,6 +22,7 @@ SRCS := map_reading.c \
 		linecon.c \
 		breadham.c \
 		mlx_business.c \
+		freeallthemandem.c \
 		main.c
 INCLUDE := fdf.h
 OBJ := $(SRCS:.c=.o)

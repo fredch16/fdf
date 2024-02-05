@@ -6,7 +6,7 @@
 /*   By: fcharbon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:41:27 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/02/01 22:15:54 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:32:07 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	ft_putline_low(t_mlx_shitter *fmlx)
 
 	while (fmlx->x0 < fmlx->x1)
 	{
-		mlx_pixel_put(fmlx->mlx, fmlx->win, (int)(fmlx->x0), (int)(y), 0x00FFFFFF);
+		//mlx_pixel_put(fmlx->mlx, fmlx->win, (int)(fmlx->x0), (int)(y), 0x00FFFFFF);
+		put_pixel_img(fmlx, (int)(fmlx->x0), (int)(y), 0x00FFFFFF);
 		if (dp > 0)
 		{
 			y = y + yi;
@@ -79,8 +80,8 @@ void	ft_putline_high(t_mlx_shitter *fmlx)
 
 	while (fmlx->y0 < fmlx->y1)
 	{
-		//FIX PUT IMAGE LATER
-		mlx_pixel_put(fmlx->mlx, fmlx->win, (int)(x), (int)(fmlx->y0), 0x00FFFFFF);
+//		mlx_pixel_put(fmlx->mlx, fmlx->win, (int)(x), (int)(fmlx->y0), 0x00FFFFFF);
+		put_pixel_img(fmlx, (int)(x), (int)(fmlx->y0), 0x00FFFFFF);
 		if (dp > 0)
 		{
 			x = x + xi;

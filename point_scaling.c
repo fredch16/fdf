@@ -6,7 +6,7 @@
 /*   By: fcharbon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:54:33 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/02/01 22:42:41 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:27:03 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	scale_coords_x(t_data *data)
 	while (i < data->num_of_pts)
 	{
 		data->arr_of_2dcrds[i].x = (data->arr_of_3dcrds[i].x) * scale_factor_x + (SCREEN_WIDTH
-				- (max_x - min_x) * scale_factor_x) / 2.0;
+				- (max_x - min_x) * scale_factor_x) / 2.0 + data->offset_x;
 		i++;
 	}
 }
@@ -49,7 +49,7 @@ void	scale_coords_y(t_data *data)
 	while (i < data->num_of_pts)
 	{
 		data->arr_of_2dcrds[i].y = (data->arr_of_3dcrds[i].y - min_y) * scale_factor_y
-			+ (SCREEN_HEIGHT - (max_y - min_y) * scale_factor_y) / 2.0;
+			+ (SCREEN_HEIGHT - (max_y - min_y) * scale_factor_y) / 2.0 + data->offset_y;
 		i++;
 	}
 }

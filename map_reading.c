@@ -6,7 +6,7 @@
 /*   By: fcharbon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:43:42 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/02/01 23:37:18 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:57:50 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	ft_strval_to_3dvect (char ***map_str_vals, t_data *data)
 		}
 		i++;
 	}
+	ft_free_char3(map_str_vals);
 }
 
 void	ft_get_map(char *map_path, t_data *data)
@@ -108,6 +109,13 @@ void	ft_get_map(char *map_path, t_data *data)
 
 	map_fd = open(map_path, O_RDONLY);
 	if (map_fd < 0)
-		return ;
+	{
+			perror("Error opening file");
+		if (errno == ENOENT)
+			ft_printf("File does not exist: %s\n", map_path);
+		else if (errno == EACCES)
+			ft_printf("Please change access permissions for file: %s\n", map_path);
+		exit(EXIT_FAILURE);
+	}
 	ft_strval_to_3dvect(ft_mapline_to_strvalue(ft_get_map_lines(map_fd)), data);
 }

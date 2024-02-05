@@ -6,7 +6,7 @@
 /*   By: fcharbon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 20:22:03 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/02/01 19:44:47 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/02/05 13:43:27 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void 	line_looper(t_data *data, t_mlx_shitter *fmlx)
 		{
 			if (!(cc == data->num_of_cols - 1) && !(rc == data->num_of_rows - 1))
 			{
-				connect_right(data, sc, /*rc, cc,*/fmlx);
-				connect_down(data, sc, /*rc, cc,*/fmlx);
+				connect_right(data, sc, fmlx);
+				connect_down(data, sc, fmlx);
 			}
 			else if (!(rc == data->num_of_rows - 1))
-				connect_down(data, sc, /*rc, cc,*/fmlx);
+				connect_down(data, sc, fmlx);
 			else if (!(cc == data->num_of_cols -1))
-				connect_right(data, sc, /*rc, cc,*/fmlx);
+				connect_right(data, sc, fmlx);
 			cc++;
 			sc++;
 		}
@@ -43,19 +43,18 @@ void 	line_looper(t_data *data, t_mlx_shitter *fmlx)
 	}
 }
 
-void	connect_right(t_data *data, int index, /*int rc, int cc,*/ t_mlx_shitter *fmlx)
+void	connect_right(t_data *data, int index, t_mlx_shitter *fmlx)
 {
 
 	fmlx->x0 = data->arr_of_2dcrds[index].x;
 	fmlx->y0 = data->arr_of_2dcrds[index].y;
 	fmlx->x1 = data->arr_of_2dcrds[index + 1].x;
 	fmlx->y1 = data->arr_of_2dcrds[index + 1].y;
-	//printf("Connected %d (row %d, col %d) to %d (right) from position (%f, %f) to (%f, %f) successfully.\n",
-//			index, rc + 1, cc + 1, index + 1, fmlx.x0, fmlx.y0, fmlx.x1, fmlx.y1);
 	ft_putline(fmlx);
+	printf("Connected right %d/%d\n", index, data->num_of_pts -2);
 }
 
-void    connect_down(t_data *data, int index, /*int rc, int cc,*/ t_mlx_shitter *fmlx)
+void    connect_down(t_data *data, int index, t_mlx_shitter *fmlx)
 {
 	int			offset;
 
@@ -65,7 +64,6 @@ void    connect_down(t_data *data, int index, /*int rc, int cc,*/ t_mlx_shitter 
 	fmlx->y0 = data->arr_of_2dcrds[index].y;
 	fmlx->x1 = data->arr_of_2dcrds[index + offset].x;
 	fmlx->y1 = data->arr_of_2dcrds[index + offset].y;
-    //printf("Connected %d (row %d, col %d) to %d (down) from position (%f, %f) to (%f, %f) successfully.\n",
-//			index, rc + 1, cc + 1, index + offset, fmlx.x0, fmlx.y0, fmlx.x1, fmlx.y1);
 	ft_putline(fmlx);
+	printf("Connected down %d/%d\n", index, data->num_of_pts -2);
 }

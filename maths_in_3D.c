@@ -6,7 +6,7 @@
 /*   By: fcharbon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 17:44:28 by fcharbon          #+#    #+#             */
-/*   Updated: 2024/01/29 19:47:11 by fcharbon         ###   ########.fr       */
+/*   Updated: 2024/02/05 13:59:02 by fcharbon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,3 @@ void	ft_rotate_beta_x(t_data *data)
 		count++;
 	}
 }
-
-/*
-int	arr_len_3d_vect(t_3d_vector *rotated_3ds, int num_of_pts)
-{
-	int	len;
-
-	len = 0;
-	while (rotated_3ds[len])
-		len++;
-	return (len);
-}*/
