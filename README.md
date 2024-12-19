@@ -37,7 +37,7 @@ $ ./fdf ./map.fdf
 ```
 
 
-## Controles 🕹
+## Controls 🕹
 
 |KEY|ACTION|
 |---|---|
