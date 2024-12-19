@@ -13,18 +13,18 @@
 NAME := fdf
 CC := gcc
 CFLAGS := -Wall -Werror -Wextra -g
-SRCS := map_reading.c \
-		coords_maxxing.c \
-		point_scaling.c \
-		maths_in_3D.c \
-		print_that_jawn.c \
-		linecon.c \
-		breadham.c \
-		mlx_business.c \
-		freeallthemandem.c \
-		rotation_and_translation.c \
-		colours.c \
-		main.c
+SRCS := src/map_reading.c \
+		src/coords_maxxing.c \
+		src/point_scaling.c \
+		src/maths_in_3D.c \
+		src/print_that_jawn.c \
+		src/linecon.c \
+		src/breadham.c \
+		src/mlx_business.c \
+		src/freeallthemandem.c \
+		src/rotation_and_translation.c \
+		src/colours.c \
+		src/main.c
 INCLUDE := fdf.h
 OBJ := $(SRCS:.c=.o)
 
@@ -32,7 +32,7 @@ OBJ := $(SRCS:.c=.o)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -lft -Llibs/libft -Llibs/mlx_linux -lm -lmlx_Linux -lXext -lX11 -lz -o $(NAME)
+	$(CC) $(OBJ) -lft -Lincludes/libft -Lincludes/mlx_linux -lm -lmlx_Linux -lXext -lX11 -lz -o $(NAME)
 
 all: $(NAME)
 
